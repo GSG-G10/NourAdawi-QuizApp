@@ -7,21 +7,24 @@ let score = 0;
 let questionCounter = 0;
 let availableQuesions = [];
 
+const questionCounterText = document.getElementById("questionCounter");
+const scoreText = document.getElementById("score");
+
 let questions = [
     {
         question: 'Pollination by birds is called:',
-        choice1: 'autogamy',
-        choice2: 'ornithophily',
+        choice1: 'ornithophily',
+        choice2: 'autogamy',
         choice3: 'entomophily',
         choice4: 'anemophily ',
-        answer: 2,
+        answer: 1,
     },
     {
         question:
             "What percent of fire-related deaths are due to smoke inhalation rather than burns?",
         choice1: "10%",
-        choice2: "50%",
-        choice3: "80%",
+        choice2: "80%",
+        choice3: "50%",
         choice4: "99%",
         answer: 3,
     },
@@ -36,18 +39,20 @@ let questions = [
     {
         question: "As you go down into a well, your weight:",
         choice1: "increases slightly",
-        choice2: "decreases slightly",
-        choice3: "remains exactly the same",
+        choice2: "remains exactly the same",
+        choice3: "decreases slightly",
         choice4: "None of the above",
-        answer: 2,
+        answer: 3,
     },
     {
         question: "Albacore is a type:",
+        choice2: "meteoroid",
+
         choice1: "shell-fish",
-        choice2: "tuna",
         choice3: "marble",
-        choice4: "meteoroid",
-        answer: 2,
+        choice4: "tuna",
+
+        answer: 4,
     },
 ];
 
@@ -67,6 +72,8 @@ getNewQuestion = () => {   if (availableQuesions.length === 0 || questionCounter
 }
 
     questionCounter++;
+    questionCounterText.innerText = `${questionCounter}/${MAX_QUESTIONS}`;
+
     const questionIndex = Math.floor(Math.random() * availableQuesions.length);
     currentQuestion = availableQuesions[questionIndex];
     question.innerText = currentQuestion.question;
@@ -92,6 +99,10 @@ choices.forEach((choice) => {
         const classToApply =
         selectedAnswer == currentQuestion.answer ? "correct" : "incorrect";
 
+        if (classToApply === "correct") {
+            incrementScore(CORRECT_BONUS);
+          }
+
         selectedChoice.parentElement.classList.add(classToApply);
 
         setTimeout(() => {
@@ -101,4 +112,10 @@ choices.forEach((choice) => {
         
     });
 });
+
+incrementScore = num => {
+    score += num;
+    scoreText.innerText = score;
+  };
+
 startGame();
