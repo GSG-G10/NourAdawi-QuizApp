@@ -1,4 +1,6 @@
 const goBotton = document.querySelector('.GO');
+const nameField = document.querySelector('.name');
+
 
 const changeOpacity = () => {
 
@@ -10,7 +12,9 @@ const changeOpacity = () => {
 };
 
 
-const nameField = document.querySelector('.name');
+nameField.addEventListener('keyup', () => {
+    goBotton.disabled = !nameField.value;
+});
 
 nameField.addEventListener('keypress', e => {
     if (e.target.value !="") {
