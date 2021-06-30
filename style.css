@@ -43,6 +43,10 @@ img{
  padding-top: 6.2rem;
 }
 
+form {
+  height:2rem;
+}
+
 .name {
 position: relative;
 bottom: 20rem;
@@ -72,6 +76,8 @@ text-align: center;
 color: rgb(110, 110, 110);
 
 }
+
+
 
 .GO:hover{
  cursor: pointer;

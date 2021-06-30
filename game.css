@@ -1,0 +1,38 @@
+  
+.quiz {
+    margin-top: 6rem;
+    text-align: center;
+}
+h2 {
+    margin-bottom: 3rem;
+}
+
+.choice-container {
+    display: flex;
+    margin-left: 22rem;
+    margin-bottom: 0.5rem;
+    width: 50%;
+    border: 0.1rem solid #f9861a3f;
+    border-radius: 1rem;
+    background-color: white;
+  }
+
+  .choice-container:hover {
+    cursor: pointer;
+
+  }
+
+  .choice-prefix {
+    padding: 1.5rem 2.5rem;
+    background-color: #0069B5;
+    color: white;
+    font-size: 1.1rem;
+    margin: 0;
+    border-radius: 1rem;
+  }
+
+  .choice-text {
+    padding: 1.5rem;
+    font-size: 1.1rem;
+    margin: 0;
+  }
